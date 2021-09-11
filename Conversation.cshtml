@@ -1,0 +1,109 @@
+﻿@model Konveter_valyut.Models.ConversationViewModel
+
+@{
+    ViewBag.Title = "Conversation";
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Document  </title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 450px;
+            background: gray;
+        }
+
+        h1 {
+            color: #364547;
+        }
+
+        .container .box {
+            width: 100%;
+            display: flex;
+        }
+
+        .box div {
+            width: 100%;
+        }
+
+        select {
+            width: 95%;
+            height: 40px;
+            font-size: 1cm;
+            cursor: pointer;
+            outline: none;
+            background: #7868e6;
+            color: white;
+            margin: 0.2cm 0;
+            padding: 0 1cm;
+            border-radius: 10px;
+            border: none;
+        }
+
+        input {
+            width: 95%;
+            height: 40px;
+            font-size: 1cm;
+            margin: 0.2cm 0;
+            border-radius: 10px;
+            border: none;
+            background: #edeef7;
+            outline: none;
+            padding: 0 1cm;
+        }
+
+        .btn {
+            width: 98%;
+            background: #364547;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1cm;
+            margin: 0.5cm 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carrency Convetor</h1>
+        <form action="Conversation" method="post">
+
+            <div class="box">
+                <div class="left-box">
+                    @Html.DropDownList("NameOne", ViewBag.CurrencyList as SelectList)
+                </div>
+                <div class="right-box">
+                    @Html.DropDownList("NameTwo", ViewBag.CurrencyList as SelectList)
+                </div>
+
+            </div>
+            <input type="number" name="ValueOne" id="num">
+
+            <p style="font-size:25px">@Session["result"]</p>
+            <button class="btn" id="btn">Convert</button>
+        </form>
+
+    </div>
+</body>
+</html>
+
+
+
